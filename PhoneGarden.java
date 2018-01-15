@@ -118,16 +118,15 @@ public class PhoneGarden {
 		}
 		return result;
 	}
-	public void edit(String username, String name, String DOB) {
+	public void edit(String username, String name, String email, String DOB) {
 		Connection conn = null;
 		Statement stmt = null;
-		
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			conn = DriverManager.getConnection(DB_URL, USER, PASS);
 			stmt = conn.createStatement();
 			String sql;
-			sql = "UPDATE Account " + "SET " + "RealName = '" + name + "', DOB = '" + DOB + "' " + 
+			sql = "UPDATE Account " + "SET " + "RealName = '" + name + "', DOB = '" + DOB  + "', email = '" + email + "' " +
 					" WHERE Username = '" + username + "';";
 			stmt.executeUpdate(sql);
 			stmt.close();
@@ -135,7 +134,6 @@ public class PhoneGarden {
 		}catch (Exception e) {
 		} finally {
 		}
-		
 	}
 	public static byte[] encrypt(String x) throws Exception {
 		java.security.MessageDigest d = null;

@@ -40,6 +40,7 @@
 			out.print(request.getParameter("username"));
 		%>"> <br> <br>
          Enter your name: <input type = "text" name = "name"><br><br>
+         Enter your email: <input type = "text" name = "email"><br><br>
          Enter your DOB(MM/DD/YY): <input type = "text" name = "DOB" /><br><br>
          <input type = "submit" value = "Edit" />
       </form>

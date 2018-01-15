@@ -18,10 +18,11 @@
 				<%
 				String username = request.getParameter("username");
             	String name = request.getParameter("name");
+            	String email = request.getParameter("email");
             	String DOB = request.getParameter("DOB");
             	out.println(username + " " + name + " " + DOB);
 				PhoneGarden run = new PhoneGarden();
-				run.edit(username, name, DOB);
+				run.edit(username, name, email, DOB);
 					
 				%>
 			</p>
