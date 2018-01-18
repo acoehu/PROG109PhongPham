@@ -46,7 +46,6 @@
                 Enter your password:<input type="password" name="password"/><br><br>
                 Enter your email:<input type="text" name="email"/><br><br>
                 Enter your name: <input type = "text" name = "name"><br><br>
-                
          		Enter your DOB(MM/DD/YY): <input type = "text" name = "DOB" id = "datepicker" /><br><br>
                 <input type="submit" value="Register" /><br>
             </form>

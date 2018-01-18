@@ -12,7 +12,7 @@ import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 public class SendEmail {
-  public static void main(String[] args) {
+  public void send(String user) {
   final String SSL_FACTORY = "javax.net.ssl.SSLSocketFactory";
   // Get a Properties object
      Properties props = System.getProperties();
@@ -41,8 +41,8 @@ public class SendEmail {
      msg.setFrom(new InternetAddress(username));
      msg.setRecipients(Message.RecipientType.TO, 
                       InternetAddress.parse("acoehu11@gmail.com",false));
-     msg.setSubject("Hello");
-     msg.setText("How are you");
+     msg.setSubject("Activate your email now");
+     msg.setText("Click here to activate your account: http://localhost:8080/WebProject/Activate.jsp?username=" + user);
      msg.setSentDate(new Date());
      Transport.send(msg);
      System.out.println("Message sent.");

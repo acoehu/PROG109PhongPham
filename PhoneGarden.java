@@ -21,7 +21,7 @@ public class PhoneGarden {
 			conn = DriverManager.getConnection(DB_URL, USER, PASS);
 			stmt = conn.createStatement();
 			String sql = "INSERT INTO Account " + "VALUES ( '" + username + "', '" + password + "', '" + email + "', '"
-					+ name + "', '" + DOB + "')";
+					+ name + "', '" + DOB + "', " +     false      + ")";
 			stmt.executeUpdate(sql);
 		} catch (Exception e) {
 		} finally {
@@ -126,7 +126,7 @@ public class PhoneGarden {
 			conn = DriverManager.getConnection(DB_URL, USER, PASS);
 			stmt = conn.createStatement();
 			String sql;
-			sql = "UPDATE Account " + "SET " + "RealName = '" + name + "', DOB = '" + DOB  + "', email = '" + email + "' " +
+			sql = "UPDATE Account " + "SET " + "RealName = '" + name + "', DOB = '" + DOB  + "', Email = '" + email + "' " +
 					" WHERE Username = '" + username + "';";
 			stmt.executeUpdate(sql);
 			stmt.close();
@@ -135,6 +135,24 @@ public class PhoneGarden {
 		} finally {
 		}
 	}
+	public void activate(String username) {
+		Connection conn = null;
+		Statement stmt = null;
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			conn = DriverManager.getConnection(DB_URL, USER, PASS);
+			stmt = conn.createStatement();
+			String sql;
+			sql = "UPDATE Account " + "SET " + "Activated = " + true +
+					" WHERE Username = '" + username + "';";
+			stmt.executeUpdate(sql);
+			stmt.close();
+			conn.close();
+		}catch (Exception e) {
+		} finally {
+		}
+	}
+	
 	public static byte[] encrypt(String x) throws Exception {
 		java.security.MessageDigest d = null;
 		d = java.security.MessageDigest.getInstance("SHA-1");
